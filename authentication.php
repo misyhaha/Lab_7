@@ -1,4 +1,4 @@
-<? php
+<?php
 include 'Database.php';
 include 'User.php';
 
@@ -10,7 +10,7 @@ if(isset($_POST['submit'])&&($_SERVER['REQUEST_METHOD']=='POST')){
     $matric=$db->real_escape_string($_POST['matric']);
     $password=$db->real_escape_string($_POST['password']);
 
-    //valodate inputs
+    //validate inputs
     if(!empty($matric)&& !empty($password)){
         $user= new USer($db);
         $userDetails=$user->getUser($matric);

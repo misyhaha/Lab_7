@@ -1,4 +1,4 @@
-<? php
+<?php
 include "Database.php";
 include "User.php";
 
@@ -24,7 +24,7 @@ $rsult = $user->getUsers();
             <th>Level</th>
             <th colspan="2">Action</th>
 </tr>
-<? php
+<?php
 if($result->num_rows>0){
     while($row=$rsult->fetch_assoc()){
         ?>

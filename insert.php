@@ -1,4 +1,4 @@
-<? php
+<?php
 include 'Database.php';
 include "User.php";
 
