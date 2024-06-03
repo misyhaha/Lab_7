@@ -12,10 +12,11 @@ class Database{
 
         //check the connection
         if($this->conn->connect_error){
-            die("COnnection failed: " . $this->conn->connect_error);
+            die("Connection failed: " . $this->conn->connect_error);
         } else{
             //echo "Connected successfully";
         }
         return $this->conn;
     }
 }
+?>

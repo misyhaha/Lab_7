@@ -12,7 +12,7 @@ if(isset($_POST['submit'])&&($_SERVER['REQUEST_METHOD']=='POST')){
 
     //validate inputs
     if(!empty($matric)&& !empty($password)){
-        $user= new USer($db);
+        $user= new User($db);
         $userDetails=$user->getUser($matric);
 
         //check if user exists and verify p/w

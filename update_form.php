@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     $database=new Database();
     $db=$database->getConnection();
 
-    $user=new User();
+    $user=new User($db);
     $userDetails=$user->getUser($matric);
 
     $db->close();
@@ -21,9 +21,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 </head>
 <body>
     <form action="update.php" method="post">
-        <input type="hidden" name="matric" value="<?php echo $user['matric']; ?>">
+        <input type="hidden" name="matric" value="<?php echo $userDetails['matric']; ?>">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="<?php echo $user['name']; ?>">
+        <input type="text" name="name" id="name" value="<?php echo $userDetails['name']; ?>">
         <br>
         <label for="role">Role:</label>
             <select name="role" id = "role" required>

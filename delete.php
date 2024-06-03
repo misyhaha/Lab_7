@@ -1,6 +1,6 @@
 <?php
-include "Database.php";
-include "User.php";
+include 'Database.php';
+include 'User.php';
 
 if($_SERVER["REQUEST_METHOD"]=="GET"){
     //retrieve the matric value from the POST request
@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $db=$database->getConnection();
 
     //instantiate User class
-    $user = new User();
+    $user = new User($db);
     $user->deleteUser($matric);
 
     $db->close();

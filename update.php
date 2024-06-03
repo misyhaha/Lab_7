@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $db= $database->getConnection();
 
     $user= new User($db);
-    $usr->updateUser($matric, $name, $role);
+    $user->updateUser($matric, $name, $role);
 
     $db->close();
 }

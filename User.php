@@ -37,7 +37,7 @@ class User{
     }
 
     //to read a single user by matric
-    public function getUser(matric)
+    public function getUser($matric)
     {
         $sql="SELECT * FROM users WHERE matric=?";
         $stmt=$this->conn->prepare($sql);
@@ -57,7 +57,7 @@ class User{
 
     //update a user's information
     public function updateUser($matric, $name, $role){
-        $sql="UPDATE users SET name=?, role=?, WHERE matric=?";
+        $sql="UPDATE users SET name=?, role=? WHERE matric=?";
         $stmt=$this->conn->prepare($sql);
 
         if($stmt){
@@ -95,3 +95,4 @@ class User{
         }
     }
 }
+?>
