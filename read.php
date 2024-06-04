@@ -16,11 +16,17 @@ $result = $user->getUsers();
     <head>
         <style>
             body{
-                //adjust balik sbb ni cuma text dlm kotak yg center
-                text-align:center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
             }
-        </style>
+            table{
+                
+            }
+        </style> 
         <title>TO READ DATA</title>
+        <link ref="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <table border='1'>
@@ -45,7 +51,7 @@ if($result->num_rows>0){
     <?php
     }
 }else{
-    echo"<tr><td colspan='3'>No users found</td></tr>";
+    echo"<tr><td colspan='5'>No users found</td></tr>";
 }
 $db->close();
 ?>
