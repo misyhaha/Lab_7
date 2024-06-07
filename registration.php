@@ -12,7 +12,7 @@
             }
             .wrapper{
                 width: 300px; 
-                background: lightblue;
+                background: lightsalmon;
                 text-align: center;
                 border-radius: 10px;
                 padding: 30px 40px;
@@ -21,8 +21,8 @@
         <title>Dokumen</title>
 </head>
 <body>
-    <h2>Register</h2>
 <div class="wrapper">
+    <h2>Register</h2>
     <form action="insert.php" method="post">
         <label for="matric">Matric:</label>
         <input type="text" name="matric" id="matric" required><br><br>
@@ -36,7 +36,7 @@
             <option value="lecturer">Lecturer</option>
             <option value="student">Student</option>
         </select><br><br><br>
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="SUBMIT"> <a href="login.php">Cancel</a>
     </form>
 </div>
 </body>

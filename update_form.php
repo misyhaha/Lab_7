@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+    $_SESSION['redirect_ur'] = $_SERVER['REQUEST_URI'];
+    header('Location: login.php');
+    exit;
+}
+?>
+<?php
 include 'Database.php';
 include 'User.php';
 
@@ -15,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
     ?>
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
         <head>
         <style>
             *{
@@ -28,8 +37,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 min-height: 100vh;
             }
             .wrapper{
-                width: 320px;
-                height: 300px;
+                width: 350px;
+                height: 320px;
                 background: lightsalmon;
                 text-align: justify;
                 border-radius: 10px;
@@ -42,14 +51,18 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             .form-group{
                 text-align:center;
             }
+            .cancel-link{
+                text-align: center;
+            }
         </style>
             <title>Update user details</title>
         </head>
 <body>
     <div class="wrapper">
-        <h1>Update Details</h1>
+        <h1>Update Details</h1><br>
     <form action="update.php" method="post">
-        <input type="hidden" name="matric" value="<?php echo $userDetails['matric']; ?>"><br><br>
+        <label for="matric">Matric:</label>
+        <input type="text" name="matric" id="matric" value="<?php echo $userDetails['matric']; ?>"><br><br>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="<?php echo $userDetails['name']; ?>">
         <br><br>
@@ -62,6 +75,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     <div class="form-group">
         <input type="submit" value="Update">
     </div>
+        <div class="cancel-link">
+                <p><a href="read.php">Cancel</a></p>
+            </div>
     </form>
     </div>
 </body>

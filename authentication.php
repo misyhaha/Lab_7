@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'Database.php';
 include 'User.php';
 
@@ -17,7 +19,14 @@ if(isset($_POST['submit'])&&($_SERVER['REQUEST_METHOD']=='POST')){
 
         //check if user exists and verify p/w
         if($userDetails && password_verify($password, $userDetails['password'])){
-            echo 'Login successful';
+            $_SESSION['loggedin']= true;
+            $_SESSION['matric'] = $userDetails['matric'];
+
+            //redirect to originally intended page
+            $redirect_url = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : 'read.php';
+            unset($_SESSION['redirect_url']);
+            header('Location: ' . $redirect_url);
+            exit();
         } else{
             echo 'Login failed. Invalid username or password. Try <a href="login.php">login</a> again.';
         }
@@ -25,3 +34,4 @@ if(isset($_POST['submit'])&&($_SERVER['REQUEST_METHOD']=='POST')){
         echo 'Please fill in all the fields required.';
     }
 }
+?>
