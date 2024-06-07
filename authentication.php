@@ -19,7 +19,7 @@ if(isset($_POST['submit'])&&($_SERVER['REQUEST_METHOD']=='POST')){
         if($userDetails && password_verify($password, $userDetails['password'])){
             echo 'Login successful';
         } else{
-            echo 'Login failed';
+            echo 'Login failed. Invalid username or password. Try <a href="login.php">login</a> again.';
         }
     }else{
         echo 'Please fill in all the fields required.';
